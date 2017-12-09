@@ -2,7 +2,7 @@
     "name": "kivkovic/php-json",
     "autoload": {
         "psr-0" : {
-            "Kreso" : "src"
+            "Kreso\\" : "src/"
         }
     }
 }
