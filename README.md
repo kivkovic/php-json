@@ -16,7 +16,7 @@ If an invalid JSON string is provided, an exception will be thrown with a code c
 $json = new Kreso\JSON('{111'); // throws an \Exception with code JSON_ERROR_SYNTAX
 ```
 
-Values can be accessed either as array keys or object properties. Inaccessible keys/properties will not raise notices. However, `isset` and `empty` work just like on regular arrays.
+Values can be accessed either as array keys or object properties. Inaccessible keys/properties will not raise notices and will return null. However, `isset` and `empty` work just like on regular arrays.
 
 ```php
 // {"a":1, "b":2, "c":[1,2,3], "f":{"a":1}, "d":[], "e":{}}
@@ -28,6 +28,8 @@ $json->k = 5;
 
 $json['a']; // 1
 $json->a;   // 1
+
+$json->notset; // null
 
 isset($json->notset); // false
 
