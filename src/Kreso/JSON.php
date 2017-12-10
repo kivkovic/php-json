@@ -2,7 +2,7 @@
 
 namespace Kreso;
 
-class JSON implements ArrayAccess {
+class JSON implements \ArrayAccess {
 
     protected $contents;
     protected $node_type;
