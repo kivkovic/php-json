@@ -53,6 +53,10 @@ class JSON implements \ArrayAccess, \Iterator, \Countable {
         $this->contents[$key] = $value;
     }
 
+    public function __isset($key) {
+        return isset($this->contents[$key]);
+    }
+
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
