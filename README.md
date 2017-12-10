@@ -18,7 +18,7 @@ Values can be accessed either as array keys or object properties. Inaccessible k
 $json[1] = 6;
 $json->k = 5;
 
-{"a":1, "b":2, "c":[1,2,3], "f":{"a":1}, "d":[], "e":{}, "1": 6, "k": 5}
+// {"a":1, "b":2, "c":[1,2,3], "f":{"a":1}, "d":[], "e":{}, "1": 6, "k": 5}
 
 $json['a']; // 1
 $json->a;   // 1
