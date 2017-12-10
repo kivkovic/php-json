@@ -84,22 +84,22 @@ class JSON implements \ArrayAccess, \Iterator, \Countable {
             reset($this->contents);
         }
     }
-  
+
     public function current()
     {
         return !empty($this->contents) ? current($this->contents) : FALSE;
     }
-  
-    public function key() 
+
+    public function key()
     {
         return !empty($this->contents) ? key($this->contents) : NULL;
     }
-  
-    public function next() 
+
+    public function next()
     {
         return !empty($this->contents) ? next($this->contents) : FALSE;
     }
-  
+
     public function valid()
     {
         if (empty($this->contents)) {
