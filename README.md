@@ -1,6 +1,6 @@
 # php-json
 
-A user-friendly PHP JSON class wrapping the built-in `json_decode` function.
+A user-friendly PHP JSON class wrapping the built-in `json_decode` function. Provides automatic JSON validation, array-like and object-like manipulation of deserialized data, and clean key/property access without raising notices.
 
 ## Usage
 
