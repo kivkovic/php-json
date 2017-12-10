@@ -1,5 +1,7 @@
 <?php
 
+namespace Kreso;
+
 class JSON implements ArrayAccess {
 
     protected $contents;
