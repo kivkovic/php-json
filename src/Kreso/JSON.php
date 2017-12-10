@@ -85,14 +85,18 @@ class JSON implements \ArrayAccess {
         }
 
         $array = [];
+        $string = '';
 
-        foreach ($this->contents as $key => $value) {
-            $value = $value instanceof JSON ? $value->serialize($level++) : json_encode($value);
+        if ($this->contents !== NULL) {
+            foreach ($this->contents as $key => $value) {
+                $value = $value instanceof JSON ? $value->serialize($level++) : json_encode($value);
 
-            $array []= $this->node_type === 'object' ? "\"$key\": " . $value : $value;
+                $array []= $this->node_type === 'object' ? "\"$key\": " . $value : $value;
+            }
+
+            $string = implode(', ', $array);
         }
 
-        $string = implode(', ', $array);
         return $this->node_type === 'array' ? "[{$string}]" : "{{$string}}";
     }
 }
