@@ -2,11 +2,12 @@
 
 namespace Kreso;
 
-class JSON implements \ArrayAccess {
+class JSON implements \ArrayAccess, \Iterator {
 
     protected $contents;
     protected $node_type;
     protected $max_depth;
+    protected $cursor = 0;
 
     public function __construct($input, $max_depth = 255)
     {
@@ -71,6 +72,38 @@ class JSON implements \ArrayAccess {
 
     public function offsetGet($offset) {
         return isset($this->contents[$offset]) ? $this->contents[$offset] : NULL;
+    }
+
+    public function rewind()
+    {
+        if (!empty($this->contents)) {
+            reset($this->contents);
+        }
+    }
+  
+    public function current()
+    {
+        return !empty($this->contents) ? current($this->contents) : FALSE;
+    }
+  
+    public function key() 
+    {
+        return !empty($this->contents) ? key($this->contents) : NULL;
+    }
+  
+    public function next() 
+    {
+        return !empty($this->contents) ? next($this->contents) : FALSE;
+    }
+  
+    public function valid()
+    {
+        if (empty($this->contents)) {
+            return FALSE;
+        }
+
+        $key = key($this->contents);
+        return $key !== NULL && $key !== FALSE;
     }
 
     public function __toString()
