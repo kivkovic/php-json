@@ -37,8 +37,9 @@ class JSON implements \ArrayAccess, \Iterator, \Countable {
     protected function deserialize($string)
     {
         $object = json_decode($string);
-        if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new \Exception(json_last_error_msg());
+        $json_last_error = json_last_error();
+        if ($json_last_error !== JSON_ERROR_NONE) {
+            throw new \Exception(json_last_error_msg(), $json_last_error);
         }
         return $object;
     }
