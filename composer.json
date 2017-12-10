@@ -1,5 +1,6 @@
 {
     "name": "kivkovic/php-json",
+    "version": "dev-master",
     "require": {
         "php": ">=5.3.0"
     },
