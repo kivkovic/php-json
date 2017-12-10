@@ -2,7 +2,7 @@
 
 namespace Kreso;
 
-class JSON implements \ArrayAccess, \Iterator {
+class JSON implements \ArrayAccess, \Iterator, \Countable {
 
     protected $contents;
     protected $node_type;
@@ -104,6 +104,10 @@ class JSON implements \ArrayAccess, \Iterator {
 
         $key = key($this->contents);
         return $key !== NULL && $key !== FALSE;
+    }
+
+    public function count() {
+        return !empty($this->contents) ? count($this->contents) : 0;
     }
 
     public function __toString()
