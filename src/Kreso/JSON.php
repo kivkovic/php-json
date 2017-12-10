@@ -21,7 +21,7 @@ class JSON implements \ArrayAccess, \Iterator, \Countable {
             $this->node_type = 'array';
 
         } else {
-            throw new Exception('Invalid or malformed JSON');
+            throw new \Exception('Invalid or malformed JSON');
         }
 
         foreach ($deserialized as $key => $value) {
@@ -38,7 +38,7 @@ class JSON implements \ArrayAccess, \Iterator, \Countable {
     {
         $object = json_decode($string);
         if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new Exception(json_last_error_msg());
+            throw new \Exception(json_last_error_msg());
         }
         return $object;
     }
@@ -122,7 +122,7 @@ class JSON implements \ArrayAccess, \Iterator, \Countable {
     protected function serialize($level = 0)
     {
         if ($level > $this->max_depth) {
-            throw new Exception('The maximum stack depth has been exceeded');
+            throw new \Exception('The maximum stack depth has been exceeded');
         }
 
         $array = [];
