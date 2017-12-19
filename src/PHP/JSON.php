@@ -1,6 +1,6 @@
 <?php
 
-namespace Kreso;
+namespace PHP;
 
 class JSON implements \ArrayAccess, \Iterator, \Countable {
 
