@@ -13,7 +13,7 @@ $json = new PHP\JSON('{"a":1, "b":2, "c":[1,2,3], "f":{"a":1}, "d":[], "e":{}}')
 If an invalid JSON string is provided, an exception will be thrown with a code corresponding to the [builtin JSON error codes](https://secure.php.net/manual/en/function.json-last-error.php):
 
 ```php
-$json = new PHP\JSON('{111'); // throws an \Exception with code JSON_ERROR_SYNTAX
+$json = new PHP\JSON('{111'); // throws PHP\JSONException with code JSON_ERROR_SYNTAX
 ```
 
 Values can be accessed either as array keys or object properties. Inaccessible keys/properties will not raise notices and will return null. However, `isset` and `empty` work just like on regular arrays.
